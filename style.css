@@ -107,4 +107,7 @@ h2 {
     html {
         background-image: url(https://images.pexels.com/photos/1010519/pexels-photo-1010519.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
     }
+    .contenido {
+        width: 100%;
+    }
 }
