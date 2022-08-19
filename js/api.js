@@ -12,9 +12,23 @@ export class API {
         fetch(url)
             .then(respuesta => respuesta.json())
             .then(resultado => {
-                const {lyrics} = resultado;
 
-                UI.divResultado.textContent = lyrics;
+                if(resultado.lyrics) {
+                    const {lyrics} = resultado;
+
+                    UI.divResultado.textContent = lyrics;
+                    UI.headingResultado.textContent = `Título de la canción: ${this.cancion} de ${this.artista}`;
+    
+                } else {
+                    UI.divMensajes.textContent = 'OOuh!! No existe la canción, prueba de nuevo';
+                    UI.divMensajes.classList.add('error');
+
+                    setTimeout(() => {
+                        UI.divMensajes.textContent = '';
+                        UI.divMensajes.classList.remove('error');
+                    }, 3000);
+                }
+            
             })
 
     }
